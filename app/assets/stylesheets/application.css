@@ -1,0 +1,213 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+div, a, p, input, select, textarea, section{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+a{text-decoration: none !important;}
+
+
+html, body{font-family: 'Open Sans', sans-serif;}
+
+.rounded-btn{display: inline-block; border-radius: 3px; padding: 5px 10px 7px 10px; font-size: 15px; line-height: 100%;}
+.green{background: #2ecc71; color: #FFF !important;}
+.blue{background: #0069d9; color: #FFF !important;}
+.red{background: #e74c3c; color: #FFF !important;}
+
+#notice {
+	color: green;
+	display: block;
+	width: 100%;
+	padding: 20px;
+	background: #DED;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#sidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background: #172D44;
+}
+
+#sidebar .title{padding: 50px 20px; border-bottom: 2px solid #071D34;}
+#sidebar .title img{display: block; width: 80%; margin: 0 auto;}
+
+#sidebar .menu a{display: block; padding: 20px; color: #FFF; font-size: 15px; text-decoration: none; border-bottom: 1px solid #071D34;}
+#sidebar .menu a i{display: inline-block; font-size: 18px; margin-right: 10px;}
+#sidebar .menu a:hover{background: #071D34;}
+
+
+#container{
+    position: absolute;
+    top: 0;
+    left: 250px;
+    bottom: 0;
+    right: 0;
+    background: #F7F7F7;
+    overflow-y: auto;
+}
+
+#container header{
+    width: 100%;
+    height: 70px;
+    background: #EDEDED;
+    border-bottom: 1px solid #D9DEE4;
+}
+#container header h1{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 25px;
+    color: #555;
+}
+#container header .links{
+    position: absolute;
+    right: 20px;
+    top: 28px;
+    font-size: 15px;
+    color: #555;
+}
+
+#container .content{padding: 20px; padding-top: 0;}
+
+/*==================================================================================*/
+/*=                                      PANELS                                    =*/
+/*==================================================================================*/
+
+.panel-container{margin-top: 20px; display: flex; justify-content: space-between;}
+
+.panel{width: 100%; padding: 20px; background: #FFF; border: 1px solid #E6E9ED;}
+.panel.half{width: calc(50% - 10px)}
+.panel.centred{max-width: 600px; width: 80%; margin: 0 auto}
+
+.panel .panel-header{padding-bottom: 20px; color: #73879C; border-bottom: 2px solid #73879C;}
+.panel .panel-header h2{padding: 0; margin: 0; font-size: 20px;}
+.panel .panel-header .actions{float: right; margin-bottom: 0; margin-top: -20px;}
+.panel .panel-header .actions a{margin-left: 10px;}
+
+.panel .panel-content .empty{display: block; font-weight: bold; margin-top: 20px;}
+
+
+/*==================================================================================*/
+/*=                                   PANEL TABLE                                  =*/
+/*==================================================================================*/
+
+.panel table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 15px;
+}
+
+.panel table th{
+    padding: 20px 5px;
+    font-weight: bold;
+    color: #172D44;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px;
+}
+.panel table th:last-child{text-align: right;}
+
+.panel table tbody tr{ background: none; padding: 15px 5px; }
+.panel table tbody tr:nth-child(2n){ background: #EDEDED; }
+
+.panel table tbody td{ padding: 15px 5px; }
+.panel table tbody td:last-child{text-align: right;}
+.panel table tbody td:last-child a{margin-left: 10px;}
+
+
+/*==================================================================================*/
+/*=                                   PANEL FORM                                   =*/
+/*==================================================================================*/
+
+.panel form{width: 100%; text-align: left; font-size: 15px; margin-top: 20px;}
+.panel form label{display: block; font-weight: bold; margin-bottom: 10px;}
+.panel form input, textarea, select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    background: none;
+    margin-bottom: 10px;
+}
+
+/*==================================================================================*/
+/*=                                     PROFILE                                    =*/
+/*==================================================================================*/
+.panel-content.profile{display: flex; padding: 20px 0;}
+
+.profile-pic{width: 234px; padding-right: 10px;}
+.profile-pic img{display: block; width: 100%; margin: 0 auto;}
+.profile-pic h3{margin-top: 20px; text-align: center; font-size: 20px;}
+
+.profile-info{width: calc(100% - 234px); padding-left: 20px;}
+.profile-info .info-block{padding: 20px 5px; background: #F5F7FA;}
+.profile-info .info-block:nth-child(2n){background: #EDEDED}
+.profile-info .info-block strong{font-weight: bold;}

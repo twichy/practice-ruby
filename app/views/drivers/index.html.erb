@@ -1,0 +1,51 @@
+<% title "Drivers" %>
+
+<header>
+    <h1> Drivers </h1>
+</header>
+
+<section class="content">
+
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> Driver List </h2>
+                <div class="actions">
+                    <%= link_to 'New Driver', new_driver_path, class: "rounded-btn green" %>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Birth</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% @drivers.each do |driver| %>
+                        <tr>
+                            <td><%= driver.name %></td>
+                            <td><%= driver.email %></td>
+                            <td><%= driver.birth %></td>
+                            <td>
+                                <%= link_to 'Show', driver, class: "rounded-btn green"%>
+                                <!--<%= link_to 'Edit', edit_driver_path(driver), class: "rounded-btn green" %>-->
+                                <%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }, class: "rounded-btn red" %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+<% title "New driver" %>
+
+<header>
+    <h1> New driver </h1>
+    <div class="links">
+        <%= link_to 'Back', drivers_path %>
+    </div>
+</header>
+
+<section class="content">
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="panel-container">
+        <div class="panel centred">
+            <div class="panel-header">
+                <h2> Create a new driver </h2>
+            </div>
+            <div class="panel-content">
+                <%= render 'form', driver: @driver %>
+            </div>
+        </div>
+    </div>
+</section>

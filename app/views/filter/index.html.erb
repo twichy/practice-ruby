@@ -1,0 +1,63 @@
+<% title "Filter" %>
+
+<header>
+    <h1> Filter </h1>
+</header>
+
+<section class="content">
+
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div id="test"> </div>
+
+    <div class="panel-container">
+        <div class="panel half">
+            <div class="panel-header">
+                <h2> Filter by Drivers </h2>
+            </div>
+            <div class="panel-content">
+                <%= form_with(url: "/filter/by-driver") do |form| %>
+                    <div class="field">
+                        <%= form.label :driver %>
+                        <%= form.collection_select(:driver_id, Driver.all, :id, :name) %>
+                    </div>
+
+                    <div class="actions">
+                        <%= form.submit :Filter %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="panel half">
+            <div class="panel-header">
+                <h2> Filter by cars </h2>
+            </div>
+            <div class="panel-content">
+                <%= form_with(url: "/filter/by-car") do |form| %>
+                    <div class="field">
+                        <%= form.label :car %>
+                        <%= form.collection_select(:car_id, Car.all, :id, :title) %>
+                    </div>
+
+                    <div class="actions">
+                        <%= form.submit :Filter %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> Results </h2>
+            </div>
+            <div class="panel-content" id="filter-results">
+                <span class="empty"> No results </span>
+            </div>
+        </div>
+    </div>
+</section>

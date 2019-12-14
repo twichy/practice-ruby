@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Created at</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="assignment-list">
+        <% car.drivers.includes(:car_drivers).each do |driver| %>
+        <tr>
+            <td><%= driver.id %></td>
+            <td><%= driver.name %></td>
+            <td> <%= driver.car_drivers.where(car: car.id).first.created_at %> </td>
+            <td>
+            <%= link_to 'Show', driver, class: "rounded-btn green" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

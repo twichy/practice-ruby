@@ -1,0 +1,14 @@
+<% Driver.all.each do |driver| %>
+    <% if driver.cars.present? %>
+        <% driver.cars.each do |car| %>
+            <tr>
+                <td><%= driver.name %></td>
+                <td><%= car.title %></td>
+                <td>
+                    <%= link_to 'Show Driver', driver_url(driver), class: "rounded-btn green" %>
+                    <%= link_to 'Show Car', car_url(car), class: "rounded-btn green" %>
+                </td>
+            </tr>
+        <% end %>
+    <% end %>
+<% end %>

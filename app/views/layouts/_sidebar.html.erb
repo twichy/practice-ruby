@@ -1,0 +1,11 @@
+<div id="sidebar">
+    <div class="title">
+        <%= image_tag("logo.png", :alt => "Logo") %>
+    </div>
+    <div class="menu">
+        <%= link_to raw("<i class='fas fa-user'></i> Drivers"), controller: 'drivers', action: 'index' %>
+        <%= link_to raw("<i class='fas fa-car'></i> Cars"), controller: 'cars', action: 'index' %>
+        <%= link_to raw("<i class='fas fa-link'></i> Assignments"), controller: 'assignments', action: 'show' %>
+        <%= link_to raw("<i class='fas fa-filter'></i> Filter"), controller: 'filter', action: 'index' %>
+    </div>
+</div>

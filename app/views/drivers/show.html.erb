@@ -1,0 +1,85 @@
+<% title @driver.name %>
+
+<header>
+    <h1> Driver - <%= @driver.name %> </h1>
+    <div class="links">
+        <%= link_to 'Back', drivers_path %>
+        <!--<%= link_to 'Edit', edit_driver_path(@driver) %>-->
+    </div>
+</header>
+
+<section class="content">
+
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> Driver profile </h2>
+            </div>
+            <div class="panel-content profile">
+                <div class="profile-pic">
+                    <% if @driver.image %>
+                        <img src="/images/<%= @driver.image.id %>" alt="<%= @driver.name %>" />
+                    <% else %>
+                        <%= image_tag("driver.png", :alt => "Default car image") %>
+                    <% end %>
+                </div>
+                <div class="profile-info">
+                    <div class="info-block">
+                        <strong>Name: </strong> <span> <%= @driver.name %> </span>
+                    </div>
+                    <div class="info-block">
+                        <strong>Email: </strong> <span> <%= @driver.email %> </span>
+                    </div>
+                    <div class="info-block">
+                        <strong>Date of birth: </strong> <span> <%= @driver.birth %> </span>
+                    </div>
+                    <div class="info-block">
+                        <strong>Created at: </strong> <span> <%= @driver.created_at %> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> Assigned cars </h2>
+            </div>
+
+            <div class="panel-content">
+            <% if @driver.cars.present? %>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Title</th>
+                        <th>Car type</th>
+                        <th>Color</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% @driver.cars.each do |car| %>
+                        <tr>
+                            <td><%= car.title %></td>
+                            <td><%= car.car_type %></td>
+                            <td><%= car.color %></td>
+                            <td>
+                            <%= link_to 'Show', car, class: "rounded-btn green" %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% else %>
+                <span class="empty"> No cars assigned to this driver </span>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</section>

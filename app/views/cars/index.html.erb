@@ -1,0 +1,51 @@
+<% title "Cars" %>
+
+<header>
+    <h1> Cars </h1>
+</header>
+
+<section class="content">
+
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> Car List </h2>
+                <div class="actions">
+                    <%= link_to 'New Car', new_car_path, class: "rounded-btn green" %>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Car type</th>
+                            <th>Color</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% @cars.each do |car| %>
+                        <tr>
+                            <td><%= car.title %></td>
+                            <td><%= car.car_type %></td>
+                            <td><%= car.color %></td>
+                            <td>
+                            <%= link_to 'Show', car, class: "rounded-btn green" %>
+                            <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class: "rounded-btn red" %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>

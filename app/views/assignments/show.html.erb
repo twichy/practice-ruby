@@ -1,0 +1,89 @@
+<% title "Assign" %>
+
+<header>
+    <h1> Manage assignments </h1>
+</header>
+
+<section class="content">
+
+    <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <div id="test"> </div>
+
+    <div class="panel-container">
+        <div class="panel half">
+            <div class="panel-header">
+                <h2> Assign </h2>
+            </div>
+            <div class="panel-content">
+                <div id="remote-notice"></div>
+
+                <%= form_with(url: "/assignments/assign") do |form| %>
+                    <div class="field">
+                        <%= form.label :driver %>
+                        <%= form.collection_select(:driver_id, Driver.all, :id, :name) %>
+                    </div>
+
+                    <div class="field">
+                        <%= form.label :car %>
+                        <%= form.collection_select(:car_id, Car.all, :id, :title) %>
+                    </div>
+
+                    <div class="actions">
+                        <%= form.submit :Assign %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="panel half">
+            <div class="panel-header">
+                <h2> Remove </h2>
+            </div>
+            <div class="panel-content">
+                <div id="remote-notice"></div>
+
+                <%= form_with(url: "/assignments/remove") do |form| %>
+                    <div class="field">
+                        <%= form.label :driver %>
+                        <%= form.collection_select(:driver_id, Driver.all, :id, :name) %>
+                    </div>
+
+                    <div class="field">
+                        <%= form.label :car %>
+                        <%= form.collection_select(:car_id, Car.all, :id, :title) %>
+                    </div>
+
+                    <div class="actions">
+                        <%= form.submit :Remove %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-container">
+        <div class="panel">
+            <div class="panel-header">
+                <h2> All associations </h2>
+            </div>
+            <div class="panel-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Driver</th>
+                            <th>Car type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="assignment-list">
+                        <%= render 'assignment_list' %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
