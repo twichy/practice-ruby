@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_12_11_214804) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "car_drivers", force: :cascade do |t|
-    t.integer "car_id", null: false
-    t.integer "driver_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "driver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_car_drivers_on_car_id"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_214804) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "imageable_type"
-    t.integer "imageable_id"
+    t.bigint "imageable_id"
     t.index ["imageable_type", "imageable_id"], name: "index_cars_on_imageable_type_and_imageable_id"
   end
 
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_214804) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "imageable_type"
-    t.integer "imageable_id"
+    t.bigint "imageable_id"
     t.index ["imageable_type", "imageable_id"], name: "index_drivers_on_imageable_type_and_imageable_id"
   end
 
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_214804) do
     t.string "content_type"
     t.binary "file_contents"
     t.string "imageable_type", null: false
-    t.integer "imageable_id", null: false
+    t.bigint "imageable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
